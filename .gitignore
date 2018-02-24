@@ -40,3 +40,7 @@ bower.json
 .powenv
 
 database.yml
+*.jpg
+*.png
+*.jpeg
+*.bmp
