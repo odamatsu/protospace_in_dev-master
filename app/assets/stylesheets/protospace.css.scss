@@ -148,6 +148,13 @@ body {
  .btn-group>.btn:focus:hover, .btn-group-vertical>.btn:focus:hover, .btn-group>.btn:active:hover, .btn-group-vertical>.btn:active:hover, .btn-group>.btn.active:hover, .btn-group-vertical>.btn.active:hover {
   z-index: 2;
 }
+.drop_menu_location{
+  position: absolute;
+  top:10px;
+  left: 20px;
+ }
+
+
 
 
 
@@ -289,6 +296,7 @@ body {
 }
 
 .proto-content {
+  positon: relative;
   .thumbnail {
     border-radius: 0;
     padding: 0;
