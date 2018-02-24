@@ -16,7 +16,7 @@ class PrototypesController < ApplicationController
       redirect_to :root, notice: 'New prototype was successfully created'
     else
       flash.now[:alert] = 'YNew prototype was unsuccessfully created'
-      render :new
+      render action: :new
      end
   end
 
