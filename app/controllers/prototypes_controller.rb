@@ -15,7 +15,8 @@ class PrototypesController < ApplicationController
     if @prototype.save
       redirect_to :root, notice: 'New prototype was successfully created'
     else
-      redirect_to ({ action: new }), alert: 'YNew prototype was unsuccessfully created'
+      flash.now[:alert] = 'New prototype was unsuccessfully created'
+      render :new
      end
   end
 
