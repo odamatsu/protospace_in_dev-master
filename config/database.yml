@@ -49,6 +49,10 @@ test:
 #
 production:
   <<: *default
-  database: protospace-in-dev_production
-  username: protospace-in-dev
-  password: <%= ENV['PROTOSPACE-IN-DEV_DATABASE_PASSWORD'] %>
+  adapter:  mysql2   # postgresの場合はadapterをpostgresql
+  encoding: utf8
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host:     <%= ENV['DB_HOSTNAME'] %>
+  port:     <%= ENV['DB_PORT'] %>
