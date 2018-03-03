@@ -16,21 +16,19 @@ $(function (){
       return html;
     }
 
-  $("#dropdownMenu").on("click", function(){
+  $(".dropdown-btns").on("click", function(e){
     var prototype_id = $(this).attr("value");
     var html = buildHTML(prototype_id);
     var nextClass = $(this).next().prop("class");
-    if (nextClass === "dropdown_menu_list"){
-      $(".dropdown_menu_list").remove();
-    } else {
-      $("#actionMenu").append(html);
+    if (nextClass !== "dropdown_menu_list"){
+      $("button[value='" + prototype_id + "']").append(html);
     }
   });
 
   $(document).click(function(e) {
-  if(!$(e.target).closest('#dropdownMenu').length) {
-    $(".dropdown_menu_list").remove();
-  }
-});
+    if(!$(e.target).closest('.dropdown-btns').length) {
+      $(".dropdown_menu_list").remove();
+    }
+  });
 
 });
