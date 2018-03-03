@@ -8,7 +8,7 @@ $(function (){
             </a>
           </li>
           <li>
-            <a href="/">Edit
+            <a href="/prototypes/${data}/edit">Edit
             </a>
           </li>
         </ul>
@@ -27,11 +27,10 @@ $(function (){
     }
   });
 
-  // $("body").on("click", function(e){
-  //     var clickedElement = $(e.target);
-  //     if($(clickedElement).hasClass("body")){
-  //         $("body").fadeOut();
-  //     }
-  // });
+  $(document).click(function(e) {
+  if(!$(e.target).closest('#dropdownMenu').length) {
+    $(".dropdown_menu_list").remove();
+  }
+});
 
 });
