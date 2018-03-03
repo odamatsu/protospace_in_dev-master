@@ -2,7 +2,7 @@ $(function (){
 
     function buildHTML(data) {
       var html = `
-        <ul class="dorpdown-menu">
+        <ul class="dropdown-menu">
           <li>
             <a rel="nofollow" data-method="delete" href="/prototypes/${data}">Delete
             </a>
