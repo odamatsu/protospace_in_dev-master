@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :set_prototype, only: :show
+  before_action :set_prototype, only: [:show, :edit, :update]
 
   def index
     @prototypes = Prototype.all
@@ -32,6 +32,14 @@ class PrototypesController < ApplicationController
   def edit
   end
 
+  def update
+    if @prototype.update(prototype_params)
+      redirect_to prototype_path, notice: 'Prototype was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
   private
 
   def set_prototype
@@ -47,4 +55,5 @@ class PrototypesController < ApplicationController
       captured_images_attributes: [:content, :status]
     )
   end
+
 end
