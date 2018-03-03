@@ -16,7 +16,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'carrierwave'
 gem 'rmagick'
-
+gem 'kaminari'
 group :development, :test do
   gem 'byebug'
 end
