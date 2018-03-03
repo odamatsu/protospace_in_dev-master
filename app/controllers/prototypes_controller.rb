@@ -30,6 +30,8 @@ class PrototypesController < ApplicationController
   end
 
   def edit
+    @main = @prototype.captured_images.main
+    @sub = @prototype.captured_images.sub
   end
 
   def update
@@ -52,7 +54,7 @@ class PrototypesController < ApplicationController
       :catch_copy,
       :concept,
       :user_id,
-      captured_images_attributes: [:content, :status]
+      captured_images_attributes: [:id, :content, :status]
     )
   end
 
