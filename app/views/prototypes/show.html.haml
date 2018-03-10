@@ -34,6 +34,34 @@
         - @comments.each do |comment|
           %p
             = comment.text
+
+    .row.proto-comments
+      %h4.col-md-12
+        Comments
+        %span.num
+          (1)
+    .col-md-8#comment_area
+      .comment_list
+        .media
+          .media-left
+            %a
+              %img
+          .media-body
+            %h4.media-heading#top-aligned-media
+              田中
+              %a.anchorjs-link
+                %span.anchorjs-icon
+            %p ああああああああああ
+      = form_for @comment class: "form-inline" do |f|
+        %h4
+          Write a comment
+        .row
+          .form-group.col-md-10
+            .textform-control#comment_text
+            #comment_prototype_id
+        .form-group.col-md-2
+          .btn.btn-primary
+
     .col-md-3
       %h4 Tag List
       %ul.proto-tag-list.list-inline
