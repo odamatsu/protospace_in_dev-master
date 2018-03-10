@@ -52,7 +52,7 @@
               %a.anchorjs-link
                 %span.anchorjs-icon
             %p aaaa
-      = form_for [@prototype, @comment], class: "form-inline" do |f|
+      = form_for [@prototype, @comment], html:{class: "form-inline", id: 'new-comment'} do |f|
         %h4
           Write a comment
         .row
