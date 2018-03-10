@@ -12,7 +12,6 @@
           %h4 Main Thumbnail
           .cover-image-upload#main_image_uploader
             = f.fields_for :captured_images, @main do |images|
-              %img
               = images.file_field :content, required: true
               = images.hidden_field :status, value: "main"
         .col-md-12

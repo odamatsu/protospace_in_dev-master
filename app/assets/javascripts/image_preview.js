@@ -21,6 +21,7 @@ $(function(){
         // .prevewの領域の中にロードした画像を表示するimageタグを追加
         $preview.append($('<img>').attr({
                   src: e.target.result,
+                  width:"730px",
                   height: "500px",
                   class: "preview",
                   title: file.name
