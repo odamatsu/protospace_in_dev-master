@@ -26,10 +26,25 @@
       %h4 Catch Copy
       %p
         = @prototype.catch_copy
-    .col-md-6
-      %h4 Concept
-      %p
-        = @prototype.concept
+
+  .row.proto-comments
+    %h4.col-md-12
+      Comments
+      %span.num
+        = @prototype.comments.length
+    .col-md-8#comment_area
+      #comment_list
+        = render partial: 'prototypes/comment'
+
+      = form_for [@prototype, @comment], html:{class: "form-inline", id: 'new-comment'} do |f|
+        %h4
+          Write a comment
+        .row
+          .form-group.col-md-10
+            = f.text_field :text, class: 'textform-control', id: 'comment_text', placeholder: 'Your comments'
+        .form-group.col-md-2
+          = f.submit "COMMENT", class: "btn btn-primary"
+
     .col-md-3
       %h4 Tag List
       %ul.proto-tag-list.list-inline
