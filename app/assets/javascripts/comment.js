@@ -1,16 +1,12 @@
 $(function(){
   function buildHTML(comment){
-    var html = `<p>
-                  <strong>
-                    ${comment.avatar}
-                    ${comment.name}
-                    ：
-                  </strong>
-                  ${comment.text}
-                </p>`
+    var html = `<img src="${comment.img}">
+                ${comment.text}
+                ${comment.user_name}
+                `
     return html;
   }
-  $("投稿ボタン").on('submit', function(e){
+  $("#new-comment").on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
     var href = window.location.href + '/comments'
@@ -24,8 +20,8 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.comment_list').append(html)
-      $('textform-control').val('')
+      $('#comment_list').append(html)
+      $('#comment_text').val('')
     })
   })
 });
