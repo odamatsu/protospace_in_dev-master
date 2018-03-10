@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
   end
 
   private
-  def create.params
-    params.permit(:text, :comment_id)
+  def comment_params
+    params.permit(:text, :prototype_id)
   end
 end
