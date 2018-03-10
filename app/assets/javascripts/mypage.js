@@ -2,7 +2,7 @@ $(function (){
 
     function buildHTML(data) {
       var html = `
-        <ul class="dropdown_menu_list">
+        <ul class="dropdown_menu_list" value = "${data}">
           <li>
             <a rel="nofollow" data-method="delete" href="/prototypes/${data}">Delete
             </a>
@@ -30,6 +30,13 @@ $(function (){
   //     $(".dropdown_menu_list").remove();
   //   }
   // });
+  $(document).click(function(e) {
+    if($(e.target).closest('.dropdown-btns').length) {
+      if($(".dropdown_menu_list").attr("value") !== $(e.target).attr("value")){
+        $(".dropdown_menu_list").remove();
+      }
+    }
+  });
 
   $(document).on("click", function(e){
     if ($(e.target).closest(".dropdown-btns").length){
@@ -37,12 +44,11 @@ $(function (){
       var prototype_id = $(e.target).attr("value");
       var html = buildHTML(prototype_id);
       var nextClass = $(e.target).next().prop("class");
-
-      debugger;
       if (nextClass !== "dropdown_menu_list"){
-        $("button[value='" + prototype_id + "']").append(html);
+        $("button[value=" + prototype_id + "]").after(html);
       }
-
+    } else {
+      $(".dropdown_menu_list").remove();
     }
   });
 
