@@ -1,0 +1,9 @@
+- @comments.each do |comment|
+	.media
+		.media-left
+			= image_tag comment.user.avatar, alt: "64x64", :class => "avatar_image"
+		.media-body
+			%h4.media-heading#top-aligned-media
+				= comment.user.name
+			%p.comment_text
+				= comment.text
