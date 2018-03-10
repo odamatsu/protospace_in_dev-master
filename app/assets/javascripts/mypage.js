@@ -16,18 +16,33 @@ $(function (){
       return html;
     }
 
-  $(".dropdown-btns").on("click", function(e){
-    var prototype_id = $(this).attr("value");
-    var html = buildHTML(prototype_id);
-    var nextClass = $(this).next().prop("class");
-    if (nextClass !== "dropdown_menu_list"){
-      $("button[value='" + prototype_id + "']").append(html);
-    }
-  });
+  // $(".dropdown-btns").on("click", function(e){
+  //   var prototype_id = $(this).attr("value");
+  //   var html = buildHTML(prototype_id);
+  //   var nextClass = $(this).next().prop("class");
+  //   if (nextClass !== "dropdown_menu_list"){
+  //     $("button[value='" + prototype_id + "']").append(html);
+  //   }
+  // });
+  //
+  // $(document).click(function(e) {
+  //   if(!$(e.target).closest('.dropdown-btns').length) {
+  //     $(".dropdown_menu_list").remove();
+  //   }
+  // });
 
-  $(document).click(function(e) {
-    if(!$(e.target).closest('.dropdown-btns').length) {
-      $(".dropdown_menu_list").remove();
+  $(document).on("click", function(e){
+    if ($(e.target).closest(".dropdown-btns").length){
+
+      var prototype_id = $(e.target).attr("value");
+      var html = buildHTML(prototype_id);
+      var nextClass = $(e.target).next().prop("class");
+
+      debugger;
+      if (nextClass !== "dropdown_menu_list"){
+        $("button[value='" + prototype_id + "']").append(html);
+      }
+
     }
   });
 
