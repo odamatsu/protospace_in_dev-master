@@ -20,6 +20,7 @@
             = f.fields_for :captured_images, @sub do |image|
               %li.list-group-item.col-md-4
                 .image-upload
+                  %img
                   = image.file_field :content
                   = image.hidden_field :status, value: "sub"
       .row.proto-description
