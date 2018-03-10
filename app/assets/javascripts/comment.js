@@ -24,8 +24,8 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('').append(html)
-      $('テキストボックスを空欄').val('')
+      $('.comment_list').append(html)
+      $('textform-control').val('')
     })
   })
 });
