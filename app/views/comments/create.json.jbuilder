@@ -1,3 +1,3 @@
 json.text  @comment.text
 json.user_name  @comment.user.name
-json.avatar  @comment.user.avatar
+json.img  @comment.user.avatar.url
