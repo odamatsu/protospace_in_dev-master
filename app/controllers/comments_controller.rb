@@ -2,7 +2,11 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
 
   def create
-    @comment = Comment.create(text: comment_params[:text], prototype_id: comment_params[:prototype_id], user_id: current_user.id)
+    @comment = Comment.create(comment_params)
+    respond_to do |format|
+      format.html { redirect_to prototype_path(params[:prototype_id])  }
+      format.json
+    end
   end
 
   def edit
@@ -19,6 +23,7 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.permit(:text, :prototype_id)
+    params.require(:comment).permit(:text).merge(user_id: current_user.id,prototype_id: params[:prototype_id])
   end
+
 end
