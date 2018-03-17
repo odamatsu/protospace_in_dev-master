@@ -1,7 +1,18 @@
 $(function (){
 
     function buildHTML(data) {
-      var html = "<a></a>"
+      var html = `
+        <ul class="dropdown_menu_list" value = "${data}">
+          <li>
+            <a rel="nofollow" data-method="delete" href="/prototypes/${data}">Delete
+            </a>
+          </li>
+          <li>
+            <a href="/prototypes/${data}/edit">Edit
+            </a>
+          </li>
+        </ul>
+      `
       return html;
     }
 
