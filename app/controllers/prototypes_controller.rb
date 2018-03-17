@@ -3,6 +3,10 @@ class PrototypesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    @prototypes = Prototype.all.order("likes_count DESC").page(params[:page]).per(8)
+  end
+
+  def newest
     @prototypes = Prototype.all.order("created_at DESC").page(params[:page]).per(8)
   end
 
@@ -45,10 +49,6 @@ class PrototypesController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def newest
-    
   end
 
   private

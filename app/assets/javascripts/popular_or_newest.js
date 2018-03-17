@@ -1,6 +1,6 @@
 $(function() {
   $('.btn-popular').click(function() {
-    window.location = '';
+    window.location = '/';
   });
 
   $('.btn-newest').click(function() {
