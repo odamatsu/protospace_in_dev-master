@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 20180317031902) do
     t.integer  "user_id",      limit: 4
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id",      limit: 4
+    t.integer  "prototype_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "likes", ["prototype_id"], name: "fk_rails_8847d87628", using: :btree
+  add_index "likes", ["user_id"], name: "fk_rails_1e09b5dabf", using: :btree
+
   create_table "prototype_tags", force: :cascade do |t|
     t.integer  "prototype_id", limit: 4
     t.integer  "tag_id",       limit: 4
@@ -40,12 +50,13 @@ ActiveRecord::Schema.define(version: 20180317031902) do
   add_index "prototype_tags", ["tag_id"], name: "index_prototype_tags_on_tag_id", using: :btree
 
   create_table "prototypes", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.string   "catch_copy", limit: 255
-    t.text     "concept",    limit: 65535
-    t.integer  "user_id",    limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "title",       limit: 255
+    t.string   "catch_copy",  limit: 255
+    t.text     "concept",     limit: 65535
+    t.integer  "user_id",     limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "likes_count", limit: 4
   end
 
   add_index "prototypes", ["user_id"], name: "index_prototypes_on_user_id", using: :btree
@@ -82,5 +93,7 @@ ActiveRecord::Schema.define(version: 20180317031902) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "captured_images", "prototypes"
+  add_foreign_key "likes", "prototypes"
+  add_foreign_key "likes", "users"
   add_foreign_key "prototypes", "users"
 end
