@@ -41,9 +41,11 @@ class PrototypesController < ApplicationController
   def edit
     @main = @prototype.captured_images.main
     @sub = @prototype.captured_images.sub
+    @tags_list = @prototype.tags
   end
 
   def update
+    # if @prototype.update(prototype_params) && @prototype.where().first_or_initilaize
     if @prototype.update(prototype_params)
       redirect_to prototype_path, notice: 'Prototype was successfully updated.'
     else
@@ -63,7 +65,8 @@ class PrototypesController < ApplicationController
       :catch_copy,
       :concept,
       :user_id,
-      captured_images_attributes: [:id, :content, :status]
+      captured_images_attributes: [:id, :content, :status],
+      tags_attributes: [:id, :name]
     )
   end
 
