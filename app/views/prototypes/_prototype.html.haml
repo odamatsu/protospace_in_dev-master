@@ -11,3 +11,11 @@
           = link_to prototype.user.name, user_path(prototype.user)
         .proto-posted
           = prototype.posted_date
+      - if prototype.tags.present?
+        %ul.proto-tag-list.list-inline
+          - prototype.tags.each do |tag|
+            %li
+              = link_to root_path, class: "btn btn-default" do
+                %span
+                  = tag.name
+
