@@ -2,6 +2,8 @@ class Prototype < ActiveRecord::Base
   belongs_to :user
   has_many :captured_images, dependent: :destroy
   has_many :comments
+  has_many :tags, through: :prototype_tags
+  has_many :protorype_tags, dependent: :destroy
 
   accepts_nested_attributes_for :captured_images, reject_if: :reject_sub_images
 
