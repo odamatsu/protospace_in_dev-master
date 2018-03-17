@@ -7,6 +7,6 @@ class CreatePrototypeTags < ActiveRecord::Migration
       t.timestamps null: false
     end
     add_index :prototype_tags, :tag_id
-    add_index :prototype_tags, [:tag_id, :prototype_id], unique: true
+    add_index :prototype_tags, [:tag_id, :prototype_id]
   end
 end

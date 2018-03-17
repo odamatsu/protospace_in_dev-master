@@ -21,14 +21,6 @@ ActiveRecord::Schema.define(version: 20180317031902) do
 
   add_index "captured_images", ["prototype_id"], name: "index_captured_images_on_prototype_id", using: :btree
 
-  create_table "categories", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
-
   create_table "comments", force: :cascade do |t|
     t.text     "text",         limit: 65535
     t.datetime "created_at",                 null: false
@@ -37,17 +29,6 @@ ActiveRecord::Schema.define(version: 20180317031902) do
     t.integer  "user_id",      limit: 4
   end
 
-  create_table "prototype_categories", force: :cascade do |t|
-    t.integer  "prototype_id", limit: 4
-    t.integer  "category_id",  limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  add_index "prototype_categories", ["category_id"], name: "index_prototype_categories_on_category_id", using: :btree
-  add_index "prototype_categories", ["prototype_id", "category_id"], name: "index_prototype_categories_on_prototype_id_and_category_id", unique: true, using: :btree
-  add_index "prototype_categories", ["prototype_id"], name: "index_prototype_categories_on_prototype_id", using: :btree
-
   create_table "prototype_tags", force: :cascade do |t|
     t.integer  "prototype_id", limit: 4
     t.integer  "tag_id",       limit: 4
@@ -55,7 +36,7 @@ ActiveRecord::Schema.define(version: 20180317031902) do
     t.datetime "updated_at",             null: false
   end
 
-  add_index "prototype_tags", ["tag_id", "prototype_id"], name: "index_prototype_tags_on_tag_id_and_prototype_id", unique: true, using: :btree
+  add_index "prototype_tags", ["tag_id", "prototype_id"], name: "index_prototype_tags_on_tag_id_and_prototype_id", using: :btree
   add_index "prototype_tags", ["tag_id"], name: "index_prototype_tags_on_tag_id", using: :btree
 
   create_table "prototypes", force: :cascade do |t|
