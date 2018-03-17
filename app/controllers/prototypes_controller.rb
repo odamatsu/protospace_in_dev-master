@@ -47,6 +47,10 @@ class PrototypesController < ApplicationController
     end
   end
 
+  def newest
+    
+  end
+
   private
 
   def set_prototype
