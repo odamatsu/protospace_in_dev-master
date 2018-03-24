@@ -1,13 +1,16 @@
 $(function() {
-  $('.btn-popular').click(function(e) {
-    e.preventDefault();
+  $('.btn-popular').click(function() {
     window.location = '/';
-			 $.ajax({
-        url: "/",
-        type: "GET",
-        dataType: "json",
-			 })
-
+      // e.preventDefault();
+   //    $.ajax({
+   //      url: "/",
+   //      type: "GET",
+   //      dataType: "json",
+   //      data: {  }
+			// });
+   //    .done(function(data) {
+   //      console.log(data);
+   //    })
   });
 
   $('.btn-newest').click(function() {
