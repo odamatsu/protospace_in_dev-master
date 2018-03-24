@@ -71,6 +71,9 @@ class PrototypesController < ApplicationController
       :catch_copy,
       :concept,
       :user_id,
+      :tag_web,
+      :tag_ui,
+      :tag_app,
       captured_images_attributes: [:id, :content, :status]
     )
   end

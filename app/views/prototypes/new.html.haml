@@ -32,6 +32,15 @@
         .col-md-12
           %h4 Concept
           = f.text_area :concept, require: true, placeholder: "Input Concept"
+        .col-md-12
+          %h4 Tag List
+          .row
+            .col-md-3
+              = f.text_field :tag_web, placeholder: "Web Design", id: "prototype_tag_list_"
+            .col-md-3
+              = f.text_field :tag_ui, placeholder: "UI", id: "prototype_tag_list_"
+            .col-md-3
+              = f.text_field :tag_app, placeholder: "Application", id: "prototype_tag_list_"
       .row.text-center.proto-btn
         = f.submit "PUBLISH", id: "button", class: "btn btn-lg btn-primary btn-block"
 
