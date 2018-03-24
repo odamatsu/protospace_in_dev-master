@@ -1,9 +1,11 @@
 $(function() {
-  $('.btn-popular').click(function() {
+  $('.btn-popular').click(function(e) {
+    e.preventDefault();
     window.location = '/';
-
-			 $ajax ({
-						
+			 $.ajax({
+        url: "/",
+        type: "GET",
+        dataType: "json",
 			 })
 
   });

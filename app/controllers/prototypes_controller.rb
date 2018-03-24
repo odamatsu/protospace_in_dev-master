@@ -4,10 +4,18 @@ class PrototypesController < ApplicationController
 
   def index
     @prototypes = Prototype.order("likes_count DESC").page(params[:page]).per(8)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def newest
     @prototypes = Prototype.order("created_at DESC").page(params[:page]).per(8)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def new
