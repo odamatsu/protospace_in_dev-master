@@ -1,0 +1,19 @@
+- if user_signed_in?
+  - if @prototype.like_user(current_user.id)
+    = button_to prototype_like_path(@like, prototype_id: @prototype.id), method: :delete, id: "like-button", class: "like", remote: true do
+      = image_tag("/assets/icon_heart_red-65035f3e2f106cde180f2c1448bce917839fc297e339fcbcd65cf41eb92e8ec1.svg")
+      %span{data: {count: @prototype.likes.count }}
+        LIKE
+        = @prototype.likes.count
+  - else
+    = button_to prototype_likes_path(@prototype), id: "like-button", class: "dislike", remote: true do
+      = image_tag("/assets/icon_heart-20100b1c862f59bb23666746a16cdbd86d418436888ef57ed262f5baa649a69c.svg")
+      %span{data: {count: @prototype.likes.count }}
+        LIKE
+        = @prototype.likes.count
+- else
+  #like-button
+    = image_tag("/assets/icon_heart-20100b1c862f59bb23666746a16cdbd86d418436888ef57ed262f5baa649a69c.svg")
+    %span
+      LIKE
+      = @prototype.likes.count
