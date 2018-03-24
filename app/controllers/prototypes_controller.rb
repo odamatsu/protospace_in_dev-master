@@ -3,7 +3,19 @@ class PrototypesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @prototypes = Prototype.all.order("created_at DESC").page(params[:page]).per(8)
+    @prototypes = Prototype.order("likes_count DESC").page(params[:page]).per(8)
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
+  def newest
+    @prototypes = Prototype.order("created_at DESC").page(params[:page]).per(8)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def new
@@ -24,6 +36,8 @@ class PrototypesController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @prototype.comments.includes(:user)
+    @likes = Like.where(prototype_id: params[:id])
+    @like = Like.where(user_id: current_user.id, prototype_id: params[:id]) if user_signed_in?
   end
 
   def destroy
