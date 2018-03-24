@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180324035636) do
+ActiveRecord::Schema.define(version: 20180324061813) do
 
   create_table "captured_images", force: :cascade do |t|
     t.string  "content",      limit: 255
@@ -66,6 +66,9 @@ ActiveRecord::Schema.define(version: 20180324035636) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.integer  "likes_count", limit: 4
+    t.string   "tag_web",     limit: 255
+    t.string   "tag_ui",      limit: 255
+    t.string   "tag_app",     limit: 255
   end
 
   add_index "prototypes", ["user_id"], name: "index_prototypes_on_user_id", using: :btree
