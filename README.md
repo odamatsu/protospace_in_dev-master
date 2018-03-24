@@ -69,3 +69,5 @@ belongs_to :user, :prototype
 - user_id
 - prototype_id
 
+
+
