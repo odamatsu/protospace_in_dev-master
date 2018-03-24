@@ -12,7 +12,7 @@
         LIKE
         = @prototype.likes.count
 - else
-  #like-button
+  = link_to  new_user_session_path, id: "non-like-button" do
     = image_tag("/assets/icon_heart-20100b1c862f59bb23666746a16cdbd86d418436888ef57ed262f5baa649a69c.svg")
     %span
       LIKE
