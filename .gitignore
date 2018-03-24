@@ -45,3 +45,5 @@ database.yml
 *.png
 *.jpeg
 *.bmp
+
+app/controllers/prototypes_controller.rb
